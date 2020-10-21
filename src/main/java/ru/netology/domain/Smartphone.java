@@ -7,16 +7,16 @@ import java.util.Objects;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class Book extends Product {
-    private String author;
+public class Smartphone extends Product {
+    private String manufacturer;
 
-    public Book() {
+    public Smartphone() {
         super();
     }
 
-    public Book(int id, String name, int price, String author) {
+    public Smartphone(int id, String name, int price, String manufacturer) {
         super(id, name, price);
-        this.author = author;
+        this.manufacturer = manufacturer;
     }
 
     @Override
@@ -24,19 +24,19 @@ public class Book extends Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Book book = (Book) o;
-        return Objects.equals(author, book.author);
+        Smartphone that = (Smartphone) o;
+        return manufacturer.equals(that.manufacturer);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), author);
+        return Objects.hash(super.hashCode(), manufacturer);
     }
 
     @Override
     public String toString() {
-        return "Book{" +
-                "author='" + author + '\'' +
+        return "Smartphone{" +
+                "manufacturer='" + manufacturer + '\'' +
                 '}';
     }
 }
