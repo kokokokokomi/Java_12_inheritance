@@ -25,7 +25,7 @@ public class Book extends Product {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Book book = (Book) o;
-        return Objects.equals(author, book.author);
+        return author.equals(book.author);
     }
 
     @Override

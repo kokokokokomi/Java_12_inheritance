@@ -14,7 +14,6 @@ public class Product {
     private String name;
     private int price;
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -22,7 +21,7 @@ public class Product {
         Product product = (Product) o;
         return id == product.id &&
                 price == product.price &&
-                Objects.equals(name, product.name);
+                name.equals(product.name);
     }
 
     @Override

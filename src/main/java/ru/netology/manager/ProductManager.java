@@ -13,15 +13,18 @@ public class ProductManager {
         this.repository = repository;
     }
 
+    //public ProductManager() {}
+
     public void add(Product item) {
-        int length = items.length + 1;
-        Product[] tmp = new Product[length];
-        for (int i = 0; i < items.length; i++) {
-            tmp[i] = items[i];
-        }
-        int lastIndex = tmp.length - 1;
-        tmp[lastIndex] = item;
-        items = tmp;
+        repository.save(item);
+        //int length = items.length + 1;
+        //Product[] tmp = new Product[length];
+        //for (int i = 0; i < items.length; i++) {
+        //    tmp[i] = items[i];
+        //}
+        //int lastIndex = tmp.length - 1;
+        //tmp[lastIndex] = item;
+        //items = tmp;
     }
 
     public Product[] searchBy(String text) {
