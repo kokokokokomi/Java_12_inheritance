@@ -39,4 +39,14 @@ public class Smartphone extends Product {
                 "manufacturer='" + manufacturer + '\'' +
                 '}';
     }
+
+    public boolean matches(String search) {
+        if (super.matches(search)) {
+            return true;
+        }
+        if (getManufacturer().equalsIgnoreCase(search)) {
+            return true;
+        }
+        return false;
+    }
 }

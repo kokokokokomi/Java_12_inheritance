@@ -39,4 +39,14 @@ public class Book extends Product {
                 "author='" + author + '\'' +
                 '}';
     }
+
+    public boolean matches(String search) {
+        if (super.matches(search)) {
+            return true;
+        }
+        if (getAuthor().equalsIgnoreCase(search)) {
+            return true;
+        }
+        return false;
+    }
 }

@@ -23,8 +23,6 @@ class ProductManagerTest {
     Book book2 = new Book(3, "Дети Арбата", 100,"Анатолий Рыбаков");
     Smartphone smartphone2 = new Smartphone(4, "Xiaomi Redmi 5 Plus", 1000, "Xiaomi");
 
-
-
     @Test
     public void searchBy1() {
         manager.add(book1);
