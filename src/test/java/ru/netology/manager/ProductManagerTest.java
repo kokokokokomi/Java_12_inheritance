@@ -17,7 +17,7 @@ class ProductManagerTest {
     Book book1 = new Book(1, "Цветы для Элджернона", 100, "Дэниел Киз");
     Smartphone smartphone1 = new Smartphone(2, "Samsung d100", 1000, "Samsung");
     Book book2 = new Book(3, "Дети Арбата", 100,"Анатолий Рыбаков");
-    Smartphone smartphone2 = new Smartphone(4, "Xiaomi Redmi 5 Plus", 1000, "Xiaomi");
+    Smartphone smartphone2 = new Smartphone(4, "Xiaomi Redmi Plus", 1000, "Xiaomi");
 
     @BeforeEach
     public void setUp() {
@@ -28,16 +28,30 @@ class ProductManagerTest {
     }
 
     @Test
-    public void searchBy1() {
+    public void shouldSearchByNameBook() {
         Product[] actual = new Product[]{book2};
         Product[] expected = manager.searchBy("Дети Арбата");
         assertArrayEquals(actual, expected);
     }
 
     @Test
-    public  void searchBy2() {
+    public  void shouldSearchByManufacturer() {
         Product[] actual = new Product[]{smartphone1};
-        Product[] expected = manager.searchBy("Samsung");
+        Product[] expected = manager.searchBy("samsung");
+        assertArrayEquals(actual, expected);
+    }
+
+    @Test
+    public void shouldSearchByAuthor() {
+        Product[] actual = new Product[]{book1};
+        Product[] expected = manager.searchBy("Дэниел Киз");
+        assertArrayEquals(actual, expected);
+    }
+
+    @Test
+    public void shouldSearchByNameSmart() {
+        Product[] actual = new Product[]{smartphone2};
+        Product[] expected = manager.searchBy("Xiaomi Redmi Plus");
         assertArrayEquals(actual, expected);
     }
 }
