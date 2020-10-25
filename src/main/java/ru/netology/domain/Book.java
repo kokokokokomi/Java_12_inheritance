@@ -40,13 +40,11 @@ public class Book extends Product {
                 '}';
     }
 
+    @Override
     public boolean matches(String search) {
         if (super.matches(search)) {
             return true;
         }
-        if (getAuthor().equalsIgnoreCase(search)) {
-            return true;
-        }
-        return false;
+        return author.equalsIgnoreCase(search);
     }
 }

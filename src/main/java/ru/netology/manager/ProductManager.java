@@ -13,26 +13,14 @@ public class ProductManager {
         this.repository = repository;
     }
 
-    //public ProductManager() {}
-
-    public void add(Product item) {
-        repository.save(item);
-        //int length = items.length + 1;
-        //Product[] tmp = new Product[length];
-        //for (int i = 0; i < items.length; i++) {
-        //    tmp[i] = items[i];
-        //}
-        //int lastIndex = tmp.length - 1;
-        //tmp[lastIndex] = item;
-        //items = tmp;
-    }
+    public void add(Product item) { repository.save(item); }
 
     public Product[] searchBy(String text) {
         Product[] result = new Product[0];
         for (Product product : repository.findAll()) {
             if (product.matches(text)) {
                 Product[] tmp = new Product[result.length + 1];
-                if (result.length + 1 >= 0) System.arraycopy(tmp, 0, result, 0, result.length + 1);
+                System.arraycopy(result, 0, tmp, 0, result.length);
                 tmp[tmp.length - 1] = product;
                 result = tmp;
             }
